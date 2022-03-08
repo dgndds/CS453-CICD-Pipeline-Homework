@@ -3,6 +3,7 @@ name: Test and Upload Python Package
 # on:
 #   release:
 #     types: [published]
+#
 on: push
 
 jobs:
