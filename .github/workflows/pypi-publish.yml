@@ -7,11 +7,11 @@ on: push
 
 jobs:
   test:
-    on:
-      push:
-        branches:[ main ]
-      pull-request:
-        branches:[ main ]
+    # on:
+    #   push:
+    #     branches:[ main ]
+    #   pull-request:
+    #     branches:[ main ]
     strategy:
       matrix:
         python-version: [ '3.8','3.9','3.10']
