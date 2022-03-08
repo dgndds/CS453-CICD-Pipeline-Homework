@@ -1,0 +1,47 @@
+name: Test and Upload Python Package
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  test:
+    on:
+      push:
+        branches:[ main ]
+      pull-request:
+        branches:[ main ]
+    strategy:
+      matrix:
+        python-version: [ '3.8','3.9','3.10']
+    
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Install Dependencies and run test
+      run:
+        pip install -r requirements.txt
+        pip install pytest
+    - name: Start testing with pytest on Python ${{ matrix.python-version }}
+      with:
+          python-version: ${{ matrix.python-version }}
+      run:
+        pytest  
+
+  build-publish:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Install dependencies
+      run:
+        pip install build
+    - name: Build package
+      run: python -m build
+    - name: Publish package
+      uses: pypa/gh-action-pypi-publish@27b31702a0e7fc50959f5ad993c78deac1bdfc29
+      with:
+        user: __token__
+        password: ${{ secrets.PYPI_API_TOKEN }}
