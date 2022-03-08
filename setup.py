@@ -4,7 +4,7 @@ setup(
     # TODO: Write a globally unique name which will be listed on PyPI
     name="CI-CD-Homework-Dictionary-dgndds",
     author="Muhammed Doğancan Yılmazoğlu",  # TODO: Write your name
-    version="2.0.0",
+    version="2.0.1",
     packages=["dictionary"],
     install_requires=[
         "requests>=2.23.0",
