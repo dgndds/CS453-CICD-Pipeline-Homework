@@ -1,6 +1,6 @@
 name: Test and Upload Python Package
 
-on: [push,pull]
+on: [push,pull_request]
 
 jobs:
   test:
