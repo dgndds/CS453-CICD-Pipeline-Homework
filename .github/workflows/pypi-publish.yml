@@ -18,7 +18,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Install Dependencies and run test
-      run:
+      run: |
         pip install -r requirements.txt
         pip install pytest
     - name: Setup ${{ matrix.pythonvers }}
